@@ -42,16 +42,16 @@ function Menu(props) {
       <a href ='#' className="menu-item">
         <span className="icon-button"> {props.leftIcon} </span>
         <span className="menu-title"> {props.children} </span> 
-        <span className="right-icon"> {props.rightIcon} </span>
+        {/*<span className="right-icon"> {props.rightIcon} </span>*/}
       </a>
     );
     
   }
   return (
     <div className="dropdown">
-        <MenuItem> Profile </MenuItem>
+        <MenuItem leftIcon = {<BoltIcon/> }> Profile </MenuItem>
         <MenuItem leftIcon = {<CogIcon/> } rightIcon = {<BoltIcon/>}> Settings </MenuItem>
-        <MenuItem> Quit </MenuItem>
+        <MenuItem leftIcon = {<MessengerIcon/> } > Quit </MenuItem>
 
     </div>
   );
