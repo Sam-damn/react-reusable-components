@@ -8,7 +8,14 @@ import {ReactComponent as CarretIcon } from "./icons/caret.svg";
 import {ReactComponent as CogIcon } from "./icons/cog.svg";
 import {ReactComponent as ChevronIcon } from "./icons/chevron.svg";
 
+import Menu from "./components/dropdown";
 
+const menuItems = [
+  {title: 'Profile', Icon: <BoltIcon/>},
+  {title: 'Info', Icon: <MessengerIcon/>},
+  {title: 'About', Icon: <BellIcon/>},
+  
+]
 
 let NavBar = (props) =>  {
   return (
@@ -34,28 +41,6 @@ function NavItem(props) {
   );
 }
 
-function Menu(props) {
-
-  function MenuItem (props) {
-    return (
-      
-      <a href ='#' className="menu-item">
-        <span className="icon-button"> {props.leftIcon} </span>
-        <span className="menu-title"> {props.children} </span> 
-        {/*<span className="right-icon"> {props.rightIcon} </span>*/}
-      </a>
-    );
-    
-  }
-  return (
-    <div className="dropdown">
-        <MenuItem leftIcon = {<BoltIcon/> }> Profile </MenuItem>
-        <MenuItem leftIcon = {<CogIcon/> } rightIcon = {<BoltIcon/>}> Settings </MenuItem>
-        <MenuItem leftIcon = {<MessengerIcon/> } > Quit </MenuItem>
-
-    </div>
-  );
-}
 function App() {
   return (
     <NavBar>
@@ -64,7 +49,7 @@ function App() {
       <NavItem icon = {<MessengerIcon/>}/>
       <NavItem icon = {<BellIcon/>}/>
       <NavItem icon = {<CarretIcon/>}> 
-        <Menu/>
+        <Menu items={menuItems}/>
       </NavItem>
 
 
